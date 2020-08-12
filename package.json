@@ -1,13 +1,13 @@
 {
-    "name": "world-server",
-    "version": "0.0.1",
-    "author": "Webaverse",
-    "license": "MIT",
-    "dependencies": {
-
-    },
-    "devDependencies": {
-
-    }
+  "name": "world-server",
+  "version": "0.0.1",
+  "author": "Webaverse",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd node_modules/dialog/ && DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERROR*'} INTERACTIVE=${INTERACTIVE:='true'} node index.js"
+  },
+  "dependencies": {
+    "dialog": "webaverse/dialog"
   }
-  
+}
