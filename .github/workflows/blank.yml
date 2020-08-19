@@ -22,7 +22,7 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FOLDER: ./
+          FOLDER: node_modules/
         with:
           tag_name: ${{ github.run_id }}
           release_name: Release ${{ github.run_id }}
