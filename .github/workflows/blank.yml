@@ -9,10 +9,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build project
-        run: |
-          npm install
-          zip -r world-server.zip ./
+      - name: Setup node v14 and npm install
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '14'
+          run: npm install
+      - name: Zip the code
+        run: zip -r world-server.zip ./
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -23,7 +26,7 @@ jobs:
           release_name: Release ${{ github.run_id }}
           draft: false
           prerelease: false
-      - name: Upload Release Asset
+      - name: Upload pre-compiled zip to release
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
