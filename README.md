@@ -2,8 +2,6 @@
 
 ## What happens here?
 
-1.) The world-server runs `npm install` from a SSH command sent by our Manager. 
-
-2.) After installing our custom fork of `dialog`... we run it with another SSH command from our Manager: `npm run start`
-
-3.) The world server is now running `dialog`.
+This is the source code for world servers that run on EC2 instances. 
+There is a Github action that pre-compiles the node_modules so that EC2 can save time on boot.
+We use this repo to pull the latest release into new worlds and install the source code.
