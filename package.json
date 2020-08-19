@@ -4,10 +4,7 @@
   "author": "Webaverse",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "start": "sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install build-essential -y && sudo apt-get install python -y && sudo apt-get install python3 -y && npm install && mkdir node_modules/dialog/certs/ && cp -r certs/ node_modules/dialog/ && cd node_modules/dialog/ && npm install && npm run start"
-  },
   "dependencies": {
-    "dialog": "webaverse/dialog#non-interactive"
+    "dialog": "webaverse/dialog#worlds"
   }
 }
