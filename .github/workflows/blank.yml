@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
-          run: npm install
+        run: npm install
       - name: Zip the code
         run: zip -r world-server.zip ./
       - name: Create Release
