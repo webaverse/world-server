@@ -1,25 +1,30 @@
-name: CI
-
 on:
   push:
     branches: [ master ]
 
+name: Create Release
+
 jobs:
   build:
-    name: Deploy to GitHub Pages
+    name: Create Release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - name: npm install
-      run: |
-        npm install
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: git@github.com:webaverse/world-server.git
-        BRANCH: pre-compile
-        FOLDER: ./node_modules
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FOLDER: ./
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
