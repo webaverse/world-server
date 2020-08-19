@@ -9,13 +9,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Setup node v14 and npm install
+      - name: Setup node v14
         uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
-        run: npm install
-      - name: Zip the code
-        run: zip -r world-server.zip ./
+      - name: npm install and zip the code
+        run: |
+          npm install
+          zip -r world-server.zip ./
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
