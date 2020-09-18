@@ -1,6 +1,6 @@
 {
   "name": "world-server",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "author": "Webaverse",
   "main": "index.js",
   "license": "MIT",
